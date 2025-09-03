@@ -32,31 +32,31 @@ void setup() {
     Dabble.begin("YukiBot");
 
 }
+
 void loop() {
     Dabble.processInput();
 
     if (GamePad.isUpPressed()) {
         // movendo para frente
-        Robo_Sumo.moveForward(170, 170); //ajustar a velocidade conforme necessário, mas acho que 255 é a velocidade maxima, então ele já vai andando rapidão
+        Robo_Sumo.moveForward(-170, -170);
         Serial.println("Frente");
     } 
     else if (GamePad.isDownPressed()) {
         // movendo para trás
-        Robo_Sumo.moveForward(-170, -170); // as duas negativas para ir para tras
+        Robo_Sumo.moveForward(170, 170);
         Serial.println("Trás");
     } 
     else if (GamePad.isLeftPressed()) {
-        // movendo para a esquerda
-        Robo_Sumo.moveForward(-170, 170); // o motor direito para tras e o esquerdo para frente
+        // girando para a esquerda
+        Robo_Sumo.moveForward(170, -170);
         Serial.println("Esquerda");
     } 
     else if (GamePad.isRightPressed()) {
-        // movendo para a direita
-        Robo_Sumo.moveForward(170, -170); // o motor direito para frente e o esquerdo para tras
+        // girando para a direita
+        Robo_Sumo.moveForward(-170, 170);
         Serial.println("Direita");
     } 
     else {
-        // parado
         Robo_Sumo.Stop();
         Serial.println("Parado");
     }
